@@ -1,6 +1,6 @@
 # Cubiloc
 
-Kotlin i18n library with [Cubicolor](https://github.com/Project-Carbonica/Cubicolor) semantic colors and [Kyori Adventure](https://docs.advntr.dev/) component support.
+Kotlin i18n library with [Cubicolor](https://github.com/cubizor/Cubicolor) semantic colors and [Kyori Adventure](https://docs.advntr.dev/) component support.
 
 YAML messages as the single source of truth, compile-time key safety via auto-generated constants, ThreadLocal context system, and per-user theme switching.
 
@@ -9,7 +9,7 @@ YAML messages as the single source of truth, compile-time key safety via auto-ge
 ```kotlin
 repositories {
     mavenCentral()
-    maven("https://maven.pkg.github.com/Project-Carbonica/cubiloc") {
+    maven("https://maven.pkg.github.com/cubizor/cubiloc") {
         credentials {
             username = project.findProperty("gpr.user")?.toString() ?: System.getenv("GITHUB_ACTOR")
             password = project.findProperty("gpr.key")?.toString() ?: System.getenv("GITHUB_TOKEN")
@@ -51,11 +51,11 @@ i18n.context(player).use {
 
 ## Documentation
 
-See the [Wiki](https://github.com/Project-Carbonica/cubiloc/wiki) for full documentation.
+See the [Wiki](https://github.com/cubizor/cubiloc/wiki) for full documentation.
 
 ## Dependencies
 
-- [Cubicolor](https://github.com/Project-Carbonica/Cubicolor) — Semantic color system
+- [Cubicolor](https://github.com/cubizor/Cubicolor) — Semantic color system
 - [Kyori Adventure](https://docs.advntr.dev/) — MiniMessage component rendering
 - [okaeri-placeholders](https://github.com/OkaeriPoland/okaeri-placeholders) — Placeholder resolution
 - [SnakeYAML](https://github.com/snakeyaml/snakeyaml) — YAML parsing

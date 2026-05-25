@@ -7,7 +7,7 @@ version = project.findProperty("version") as String? ?: "0.0.1-SNAPSHOT"
 repositories {
     mavenCentral()
     maven("https://repo.okaeri.cloud/releases")
-    maven("https://maven.pkg.github.com/Project-Carbonica/Cubicolor") {
+    maven("https://maven.pkg.github.com/cubizor/Cubicolor") {
         credentials {
             username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR") ?: ""
             password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN") ?: ""

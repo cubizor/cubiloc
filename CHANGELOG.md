@@ -1,28 +1,28 @@
-# [2.1.0](https://github.com/Project-Carbonica/cubiloc/compare/v2.0.2...v2.1.0) (2026-05-16)
+# [2.1.0](https://github.com/cubizor/cubiloc/compare/v2.0.2...v2.1.0) (2026-05-16)
 
 
 ### Features
 
-* add lazy message resolution to `SingleMessageResult` ([0a77217](https://github.com/Project-Carbonica/cubiloc/commit/0a77217b31ddc77c4618d1755b1289f1b8e4df13))
+* add lazy message resolution to `SingleMessageResult` ([0a77217](https://github.com/cubizor/cubiloc/commit/0a77217b31ddc77c4618d1755b1289f1b8e4df13))
 
-## [2.0.2](https://github.com/Project-Carbonica/cubiloc/compare/v2.0.1...v2.0.2) (2026-05-16)
-
-
-### Bug Fixes
-
-* normalize locale key casing in I18n YAML loader ([86920f5](https://github.com/Project-Carbonica/cubiloc/commit/86920f5e6e5583e8bc996d4dba9dfe6885d58518))
-
-## [2.0.1](https://github.com/Project-Carbonica/cubiloc/compare/v2.0.0...v2.0.1) (2026-04-06)
+## [2.0.2](https://github.com/cubizor/cubiloc/compare/v2.0.1...v2.0.2) (2026-05-16)
 
 
 ### Bug Fixes
 
-* improve fallback handling for missing i18n keys in message results ([b05a659](https://github.com/Project-Carbonica/cubiloc/commit/b05a659cb70807208cffcbcd9e339e864c2a633f))
+* normalize locale key casing in I18n YAML loader ([86920f5](https://github.com/cubizor/cubiloc/commit/86920f5e6e5583e8bc996d4dba9dfe6885d58518))
 
-# [2.0.0](https://github.com/Project-Carbonica/cubiloc/compare/v1.1.1...v2.0.0) (2026-03-10)
+## [2.0.1](https://github.com/cubizor/cubiloc/compare/v2.0.0...v2.0.1) (2026-04-06)
 
 
-* feat!: rewrite entire project in Kotlin with YAML-only message system ([b0d1c74](https://github.com/Project-Carbonica/cubiloc/commit/b0d1c743a00a176fe501363e70ececefa4ff027e))
+### Bug Fixes
+
+* improve fallback handling for missing i18n keys in message results ([b05a659](https://github.com/cubizor/cubiloc/commit/b05a659cb70807208cffcbcd9e339e864c2a633f))
+
+# [2.0.0](https://github.com/cubizor/cubiloc/compare/v1.1.1...v2.0.0) (2026-03-10)
+
+
+* feat!: rewrite entire project in Kotlin with YAML-only message system ([b0d1c74](https://github.com/cubizor/cubiloc/commit/b0d1c743a00a176fe501363e70ececefa4ff027e))
 
 
 ### BREAKING CHANGES
@@ -31,110 +31,110 @@
 okaeri-configs removed, message config classes removed in favor of YAML-only
 approach with i18n.message(key) API
 
-## [1.1.1](https://github.com/Project-Carbonica/cubiloc/compare/v1.1.0...v1.1.1) (2026-02-24)
+## [1.1.1](https://github.com/cubizor/cubiloc/compare/v1.1.0...v1.1.1) (2026-02-24)
 
 
 ### Bug Fixes
 
-* new version update ([4c58d56](https://github.com/Project-Carbonica/cubiloc/commit/4c58d5623f67152d82faf4811859e2b6b20cc0a3))
+* new version update ([4c58d56](https://github.com/cubizor/cubiloc/commit/4c58d5623f67152d82faf4811859e2b6b20cc0a3))
 
-# [1.1.0](https://github.com/Project-Carbonica/cubiloc/compare/v1.0.8...v1.1.0) (2025-12-24)
+# [1.1.0](https://github.com/cubizor/cubiloc/compare/v1.0.8...v1.1.0) (2025-12-24)
 
 
 ### Features
 
-* add support for global placeholders in message results and document usage in README ([3b60193](https://github.com/Project-Carbonica/cubiloc/commit/3b60193b0448400533325efaca23f436ef178138))
+* add support for global placeholders in message results and document usage in README ([3b60193](https://github.com/cubizor/cubiloc/commit/3b60193b0448400533325efaca23f436ef178138))
 
-## [1.0.8](https://github.com/Project-Carbonica/cubiloc/compare/v1.0.7...v1.0.8) (2025-12-24)
-
-
-### Bug Fixes
-
-* support nested placeholder keys with dot notation and improve context defaults ([fac1aac](https://github.com/Project-Carbonica/cubiloc/commit/fac1aacaa078776c0f411bfb3563a73b4fbee198))
-
-## [1.0.7](https://github.com/Project-Carbonica/cubiloc/compare/v1.0.6...v1.0.7) (2025-12-24)
+## [1.0.8](https://github.com/cubizor/cubiloc/compare/v1.0.7...v1.0.8) (2025-12-24)
 
 
 ### Bug Fixes
 
-* support config injection and color resolution for OkaeriConfig subconfigs and add related test ([ece16a0](https://github.com/Project-Carbonica/cubiloc/commit/ece16a0aa4ef5a3103d5b5cc1cf2b50188917fca))
+* support nested placeholder keys with dot notation and improve context defaults ([fac1aac](https://github.com/cubizor/cubiloc/commit/fac1aacaa078776c0f411bfb3563a73b4fbee198))
 
-## [1.0.6](https://github.com/Project-Carbonica/cubiloc/compare/v1.0.5...v1.0.6) (2025-12-24)
-
-
-### Bug Fixes
-
-* improve theme and color scheme resolution in message results and support recursive config injection for subconfigs ([9f436d9](https://github.com/Project-Carbonica/cubiloc/commit/9f436d923b334373a7458db08c106df3f71f0501))
-
-## [1.0.5](https://github.com/Project-Carbonica/cubiloc/compare/v1.0.4...v1.0.5) (2025-12-24)
+## [1.0.7](https://github.com/cubizor/cubiloc/compare/v1.0.6...v1.0.7) (2025-12-24)
 
 
 ### Bug Fixes
 
-* MessageTheme support for semantic message styling, introduce theme loading from JSON, and implement MessageThemeTagResolver ([42c2e01](https://github.com/Project-Carbonica/cubiloc/commit/42c2e01a08069a097d5f8b0640dcca9eedb0e8d0))
+* support config injection and color resolution for OkaeriConfig subconfigs and add related test ([ece16a0](https://github.com/cubizor/cubiloc/commit/ece16a0aa4ef5a3103d5b5cc1cf2b50188917fca))
 
-## [1.0.4](https://github.com/Project-Carbonica/cubiloc/compare/v1.0.3...v1.0.4) (2025-12-23)
-
-
-### Bug Fixes
-
-* support updating Kotlin object singletons during config load and add tests for singleton handling ([1189002](https://github.com/Project-Carbonica/cubiloc/commit/11890024bf6499384a8ccfcfd27f363f56f55618))
-
-## [1.0.3](https://github.com/Project-Carbonica/cubiloc/compare/v1.0.2...v1.0.3) (2025-12-23)
+## [1.0.6](https://github.com/cubizor/cubiloc/compare/v1.0.5...v1.0.6) (2025-12-24)
 
 
 ### Bug Fixes
 
-* support field resolution in superclasses for placeholder injection and add comprehensive inheritance tests ([5440641](https://github.com/Project-Carbonica/cubiloc/commit/54406415d162532895d0b29d856cac868ef8c327))
+* improve theme and color scheme resolution in message results and support recursive config injection for subconfigs ([9f436d9](https://github.com/cubizor/cubiloc/commit/9f436d923b334373a7458db08c106df3f71f0501))
 
-## [1.0.2](https://github.com/Project-Carbonica/cubiloc/compare/v1.0.1...v1.0.2) (2025-12-23)
-
-
-### Bug Fixes
-
-* make SingleMessageResult and ListMessageResult immutable for placeholder and color scheme operations, add config injection for message results, and introduce comprehensive placeholder resolution tests ([75f3beb](https://github.com/Project-Carbonica/cubiloc/commit/75f3bebe98d7ade1c7e10211faa967e5f1d6ad81))
-
-## [1.0.1](https://github.com/Project-Carbonica/cubiloc/compare/v1.0.0...v1.0.1) (2025-12-23)
+## [1.0.5](https://github.com/cubizor/cubiloc/compare/v1.0.4...v1.0.5) (2025-12-24)
 
 
 ### Bug Fixes
 
-* add support for SingleMessageResult and ListMessageResult in placeholder value resolution ([50b87de](https://github.com/Project-Carbonica/cubiloc/commit/50b87dec5e88ec88e5c4ff14fd3e3e88ce32b28c))
+* MessageTheme support for semantic message styling, introduce theme loading from JSON, and implement MessageThemeTagResolver ([42c2e01](https://github.com/cubizor/cubiloc/commit/42c2e01a08069a097d5f8b0640dcca9eedb0e8d0))
+
+## [1.0.4](https://github.com/cubizor/cubiloc/compare/v1.0.3...v1.0.4) (2025-12-23)
+
+
+### Bug Fixes
+
+* support updating Kotlin object singletons during config load and add tests for singleton handling ([1189002](https://github.com/cubizor/cubiloc/commit/11890024bf6499384a8ccfcfd27f363f56f55618))
+
+## [1.0.3](https://github.com/cubizor/cubiloc/compare/v1.0.2...v1.0.3) (2025-12-23)
+
+
+### Bug Fixes
+
+* support field resolution in superclasses for placeholder injection and add comprehensive inheritance tests ([5440641](https://github.com/cubizor/cubiloc/commit/54406415d162532895d0b29d856cac868ef8c327))
+
+## [1.0.2](https://github.com/cubizor/cubiloc/compare/v1.0.1...v1.0.2) (2025-12-23)
+
+
+### Bug Fixes
+
+* make SingleMessageResult and ListMessageResult immutable for placeholder and color scheme operations, add config injection for message results, and introduce comprehensive placeholder resolution tests ([75f3beb](https://github.com/cubizor/cubiloc/commit/75f3bebe98d7ade1c7e10211faa967e5f1d6ad81))
+
+## [1.0.1](https://github.com/cubizor/cubiloc/compare/v1.0.0...v1.0.1) (2025-12-23)
+
+
+### Bug Fixes
+
+* add support for SingleMessageResult and ListMessageResult in placeholder value resolution ([50b87de](https://github.com/cubizor/cubiloc/commit/50b87dec5e88ec88e5c4ff14fd3e3e88ce32b28c))
 
 # 1.0.0 (2025-12-22)
 
 
 ### Bug Fixes
 
-* add missing Nyx mark command and resume flags for proper release workflow ([5b3982c](https://github.com/Project-Carbonica/cubiloc/commit/5b3982c778937903109e575199a6a27ede2fe04b))
-* add Nexus credentials to CI and release workflows ([3d71c3c](https://github.com/Project-Carbonica/cubiloc/commit/3d71c3c03d681d95984750c5718df9a9212145fc))
-* Add post-processor to MiniMessage for default italic decoration ([e6ae95b](https://github.com/Project-Carbonica/cubiloc/commit/e6ae95b2e0c228ab5eb2748cbc501b584b617884))
-* clarify commit message conventions and update Nyx infer step identifiers ([7443e16](https://github.com/Project-Carbonica/cubiloc/commit/7443e167afcedbdf57acf4a7e918b19f886261f5))
-* clean state file on infer and enable gitTagForce ([3d011f7](https://github.com/Project-Carbonica/cubiloc/commit/3d011f7582599fc7891db3a6705ea67136921806))
-* disable gitCommit and add Git remote credentials for Nyx push ([a0de646](https://github.com/Project-Carbonica/cubiloc/commit/a0de64638405d96a79890aa73bc170b6bb6b1adf))
-* disable Nyx gitPush and use workflow Git CLI for pushing tags ([a3478a0](https://github.com/Project-Carbonica/cubiloc/commit/a3478a059d4487f1870a8dffe54f70ad56fe8e8d))
-* enable gitCommit and gitPush in Nyx configuration for proper release workflow ([599bd61](https://github.com/Project-Carbonica/cubiloc/commit/599bd61b83aaedbc287e1d98d2d737f68541bccb))
-* enhance release workflow by updating Nyx infer and adding version handling ([6b89634](https://github.com/Project-Carbonica/cubiloc/commit/6b89634ba5df2778b3646f38b8e9233b268f8602))
-* explicitly enable conventionalCommits convention ([ef7608e](https://github.com/Project-Carbonica/cubiloc/commit/ef7608eaa2cf225138ab8c6b3c4146d9c8ba9a0c))
-* publish only to Nexus repository instead of all repositories ([1c5d06e](https://github.com/Project-Carbonica/cubiloc/commit/1c5d06e1f5b5fabcba030e7cad013dd67c83e6ea))
-* remove branch matching restriction in Nyx configuration ([adbcd96](https://github.com/Project-Carbonica/cubiloc/commit/adbcd96f1c2870e98f7d2a3ba4f30a82f23d9e0b))
-* remove Nyx state file from .gitignore ([5220055](https://github.com/Project-Carbonica/cubiloc/commit/5220055c9c48663a1dce5f06ee7272138870bac7))
-* restore Git remote URL token configuration for JGit authentication ([9dd200c](https://github.com/Project-Carbonica/cubiloc/commit/9dd200cd1f63275195ed91c8f9ca7c159ab3e479))
-* switch to conventionalCommits preset for proper semantic versioning ([d29d71d](https://github.com/Project-Carbonica/cubiloc/commit/d29d71dad8a0c55118c8b0a0ec984d4a9de683f9))
-* trigger version bump to 0.4.1 ([33202b2](https://github.com/Project-Carbonica/cubiloc/commit/33202b291cf400fc2c459f9c8fce362d1efc491a))
-* update Nyx configuration for improved release workflow and Git integration ([b378eff](https://github.com/Project-Carbonica/cubiloc/commit/b378eff994943d7eae418ebdfe937fc193f6841e))
+* add missing Nyx mark command and resume flags for proper release workflow ([5b3982c](https://github.com/cubizor/cubiloc/commit/5b3982c778937903109e575199a6a27ede2fe04b))
+* add Nexus credentials to CI and release workflows ([3d71c3c](https://github.com/cubizor/cubiloc/commit/3d71c3c03d681d95984750c5718df9a9212145fc))
+* Add post-processor to MiniMessage for default italic decoration ([e6ae95b](https://github.com/cubizor/cubiloc/commit/e6ae95b2e0c228ab5eb2748cbc501b584b617884))
+* clarify commit message conventions and update Nyx infer step identifiers ([7443e16](https://github.com/cubizor/cubiloc/commit/7443e167afcedbdf57acf4a7e918b19f886261f5))
+* clean state file on infer and enable gitTagForce ([3d011f7](https://github.com/cubizor/cubiloc/commit/3d011f7582599fc7891db3a6705ea67136921806))
+* disable gitCommit and add Git remote credentials for Nyx push ([a0de646](https://github.com/cubizor/cubiloc/commit/a0de64638405d96a79890aa73bc170b6bb6b1adf))
+* disable Nyx gitPush and use workflow Git CLI for pushing tags ([a3478a0](https://github.com/cubizor/cubiloc/commit/a3478a059d4487f1870a8dffe54f70ad56fe8e8d))
+* enable gitCommit and gitPush in Nyx configuration for proper release workflow ([599bd61](https://github.com/cubizor/cubiloc/commit/599bd61b83aaedbc287e1d98d2d737f68541bccb))
+* enhance release workflow by updating Nyx infer and adding version handling ([6b89634](https://github.com/cubizor/cubiloc/commit/6b89634ba5df2778b3646f38b8e9233b268f8602))
+* explicitly enable conventionalCommits convention ([ef7608e](https://github.com/cubizor/cubiloc/commit/ef7608eaa2cf225138ab8c6b3c4146d9c8ba9a0c))
+* publish only to Nexus repository instead of all repositories ([1c5d06e](https://github.com/cubizor/cubiloc/commit/1c5d06e1f5b5fabcba030e7cad013dd67c83e6ea))
+* remove branch matching restriction in Nyx configuration ([adbcd96](https://github.com/cubizor/cubiloc/commit/adbcd96f1c2870e98f7d2a3ba4f30a82f23d9e0b))
+* remove Nyx state file from .gitignore ([5220055](https://github.com/cubizor/cubiloc/commit/5220055c9c48663a1dce5f06ee7272138870bac7))
+* restore Git remote URL token configuration for JGit authentication ([9dd200c](https://github.com/cubizor/cubiloc/commit/9dd200cd1f63275195ed91c8f9ca7c159ab3e479))
+* switch to conventionalCommits preset for proper semantic versioning ([d29d71d](https://github.com/cubizor/cubiloc/commit/d29d71dad8a0c55118c8b0a0ec984d4a9de683f9))
+* trigger version bump to 0.4.1 ([33202b2](https://github.com/cubizor/cubiloc/commit/33202b291cf400fc2c459f9c8fce362d1efc491a))
+* update Nyx configuration for improved release workflow and Git integration ([b378eff](https://github.com/cubizor/cubiloc/commit/b378eff994943d7eae418ebdfe937fc193f6841e))
 
 
 ### Features
 
-* Add Dependency Injection support for Cubiloc I18n using Dagger and Guice ([055770c](https://github.com/Project-Carbonica/cubiloc/commit/055770cfd5f178f689e56b72bcc3e2423296fc8e))
-* Enhance I18n with locale provider support and refactor DI integration ([f1801fa](https://github.com/Project-Carbonica/cubiloc/commit/f1801fa1894c8c126d5ab9ab4a61a1993f87362c))
-* enhance Nyx infer step with state file handling and default values ([c021e8b](https://github.com/Project-Carbonica/cubiloc/commit/c021e8b51b6151718d1905d004a4d2083891011f))
-* enhance Nyx setup and infer steps in release workflow ([2ed62d1](https://github.com/Project-Carbonica/cubiloc/commit/2ed62d14139a56cf2cd623c35b430449186a058f))
-* initialize project structure with Gradle setup and theme configurations ([0ad1c2b](https://github.com/Project-Carbonica/cubiloc/commit/0ad1c2bd71403674d60023aff585083fc692d7a9))
-* introduce context system for zero-boilerplate message retrieval and add Okaeri transformers for message result types ([c99e703](https://github.com/Project-Carbonica/cubiloc/commit/c99e703e1360057a7e011e29621198e58eff3ebd))
-* Refactor I18n integration to use LocaleProvider, removing I18nProvider dependency ([ad83b03](https://github.com/Project-Carbonica/cubiloc/commit/ad83b033c4bba2bde402c06422a33b24cdf155dc))
-* Remove old message configuration files and add new CI and release workflows ([4b1e2b3](https://github.com/Project-Carbonica/cubiloc/commit/4b1e2b34aafd89dc5216e13b676e33b46902848c))
+* Add Dependency Injection support for Cubiloc I18n using Dagger and Guice ([055770c](https://github.com/cubizor/cubiloc/commit/055770cfd5f178f689e56b72bcc3e2423296fc8e))
+* Enhance I18n with locale provider support and refactor DI integration ([f1801fa](https://github.com/cubizor/cubiloc/commit/f1801fa1894c8c126d5ab9ab4a61a1993f87362c))
+* enhance Nyx infer step with state file handling and default values ([c021e8b](https://github.com/cubizor/cubiloc/commit/c021e8b51b6151718d1905d004a4d2083891011f))
+* enhance Nyx setup and infer steps in release workflow ([2ed62d1](https://github.com/cubizor/cubiloc/commit/2ed62d14139a56cf2cd623c35b430449186a058f))
+* initialize project structure with Gradle setup and theme configurations ([0ad1c2b](https://github.com/cubizor/cubiloc/commit/0ad1c2bd71403674d60023aff585083fc692d7a9))
+* introduce context system for zero-boilerplate message retrieval and add Okaeri transformers for message result types ([c99e703](https://github.com/cubizor/cubiloc/commit/c99e703e1360057a7e011e29621198e58eff3ebd))
+* Refactor I18n integration to use LocaleProvider, removing I18nProvider dependency ([ad83b03](https://github.com/cubizor/cubiloc/commit/ad83b033c4bba2bde402c06422a33b24cdf155dc))
+* Remove old message configuration files and add new CI and release workflows ([4b1e2b3](https://github.com/cubizor/cubiloc/commit/4b1e2b34aafd89dc5216e13b676e33b46902848c))
 
 # Changelog
 

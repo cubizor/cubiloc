@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Cubiloc is a Kotlin i18n library with [Cubicolor](https://github.com/Project-Carbonica/Cubicolor) semantic color tags and [Kyori Adventure](https://docs.advntr.dev/) component support. Messages live in YAML files (single source of truth), with type-safe key constants auto-generated at build time.
+Cubiloc is a Kotlin i18n library with [Cubicolor](https://github.com/cubizor/Cubicolor) semantic color tags and [Kyori Adventure](https://docs.advntr.dev/) component support. Messages live in YAML files (single source of truth), with type-safe key constants auto-generated at build time.
 
 ## Build & Test Commands
 

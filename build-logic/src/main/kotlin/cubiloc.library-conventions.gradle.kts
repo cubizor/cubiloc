@@ -45,7 +45,7 @@ publishing {
             pom {
                 name.set("Cubiloc")
                 description.set("Kotlin i18n library with Cubicolor semantic colors and Adventure components")
-                url.set("https://github.com/Project-Carbonica/cubiloc")
+                url.set("https://github.com/cubizor/cubiloc")
                 licenses {
                     license {
                         name.set("MIT License")
@@ -60,9 +60,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection.set("scm:git:git://github.com/Project-Carbonica/cubiloc.git")
-                    developerConnection.set("scm:git:ssh://github.com/Project-Carbonica/cubiloc.git")
-                    url.set("https://github.com/Project-Carbonica/cubiloc")
+                    connection.set("scm:git:git://github.com/cubizor/cubiloc.git")
+                    developerConnection.set("scm:git:ssh://github.com/cubizor/cubiloc.git")
+                    url.set("https://github.com/cubizor/cubiloc")
                 }
             }
         }
@@ -70,7 +70,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/Project-Carbonica/cubiloc")
+            url = uri("https://maven.pkg.github.com/cubizor/cubiloc")
             credentials {
                 username = findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR") ?: ""
                 password = findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN") ?: ""
