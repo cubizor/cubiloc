@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/cubizor/cubiloc/compare/v2.1.0...v2.1.1) (2026-05-25)
+
+
+### Bug Fixes
+
+* update repository URLs to use correct domain for cubizor ([346b92a](https://github.com/cubizor/cubiloc/commit/346b92ac9f5b94aff66f08c0f02e3b67abf4ce53))
+
 # [2.1.0](https://github.com/cubizor/cubiloc/compare/v2.0.2...v2.1.0) (2026-05-16)
 
 
