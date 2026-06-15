@@ -59,3 +59,14 @@ Cubicolor dependencies require `GITHUB_ACTOR`/`GITHUB_TOKEN` env vars or `gpr.us
 - **Themes**: JSON for color schemes (Cubicolor format). Support both `ColorScheme` and `MessageTheme` (with decorations).
 - **14 semantic color tags**: `<primary>`, `<secondary>`, `<tertiary>`, `<accent>`, `<error>`, `<success>`, `<warning>`, `<info>`, `<text>`, `<text_secondary>`, `<background>`, `<surface>`, `<border>`, `<overlay>`
 - **Publishing**: GitHub Packages Maven repository
+
+## Keep tooling in sync — MANDATORY
+
+Cubiloc powers Cubizor plugin i18n; its usage is documented as a Claude Code skill/rules **outside
+this repo**. If you change its public API, message/theme reference syntax, or version, you **MUST
+update them in the SAME change** so the docs never drift from the code:
+
+- rule `architecture/i18n.md` (in `cubizor/cubizor-rules`)
+- skill `cubizor:cubizor-conventions` (i18n section, in `cubizor/claude-plugins`)
+
+Updating cubiloc and leaving the i18n rule/skill stale is the drift this rule prevents.
