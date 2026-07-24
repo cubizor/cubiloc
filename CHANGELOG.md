@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/cubizor/cubiloc/compare/v2.1.1...v2.2.0) (2026-07-24)
+
+
+### Features
+
+* **theme:** apply optional text shadow from theme roles ([7a3793b](https://github.com/cubizor/cubiloc/commit/7a3793b09bc6b531888975a8737fef88c2e74260))
+
 ## [2.1.1](https://github.com/cubizor/cubiloc/compare/v2.1.0...v2.1.1) (2026-05-25)
 
 
