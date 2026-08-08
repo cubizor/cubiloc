@@ -9,18 +9,15 @@ YAML messages as the single source of truth, compile-time key safety via auto-ge
 ```kotlin
 repositories {
     mavenCentral()
-    maven("https://maven.pkg.github.com/cubizor/cubiloc") {
-        credentials {
-            username = project.findProperty("gpr.user")?.toString() ?: System.getenv("GITHUB_ACTOR")
-            password = project.findProperty("gpr.key")?.toString() ?: System.getenv("GITHUB_TOKEN")
-        }
-    }
 }
 
 dependencies {
-    implementation("net.cubizor.cubiloc:cubiloc:1.1.1")
+    implementation("net.cubizor.cubiloc:cubiloc:2.2.0")
 }
 ```
+
+Releases are also mirrored to GitHub Packages. See [PUBLISHING.md](PUBLISHING.md) for the release
+process.
 
 ## Quick Start
 
