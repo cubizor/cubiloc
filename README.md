@@ -9,6 +9,8 @@ YAML messages as the single source of truth, compile-time key safety via auto-ge
 ```kotlin
 repositories {
     mavenCentral()
+    // okaeri-placeholders is a transitive dependency and is not on Maven Central.
+    maven("https://repo.okaeri.cloud/releases")
 }
 
 dependencies {
