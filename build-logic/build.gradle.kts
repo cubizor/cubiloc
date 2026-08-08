@@ -4,5 +4,6 @@ plugins {
 
 dependencies {
     implementation(libs.kotlin.gradle.plugin)
+    implementation(libs.maven.publish.plugin)
     implementation(libs.snakeyaml)
 }

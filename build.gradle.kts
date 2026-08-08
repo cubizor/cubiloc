@@ -5,14 +5,9 @@ plugins {
 version = project.findProperty("version") as String? ?: "0.0.1-SNAPSHOT"
 
 repositories {
+    // Cubicolor is on Maven Central since 1.6.0, so no credentialed repository is needed.
     mavenCentral()
     maven("https://repo.okaeri.cloud/releases")
-    maven("https://maven.pkg.github.com/cubizor/Cubicolor") {
-        credentials {
-            username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR") ?: ""
-            password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN") ?: ""
-        }
-    }
 }
 
 dependencies {
@@ -50,4 +45,13 @@ kotlin {
 
 tasks.named("compileKotlin") {
     dependsOn("generateMessageKeys")
+}
+
+// Entry point for semantic-release (see .releaserc.json). Plain `publish` only stages the
+// Central deployment; `publishAndReleaseToMavenCentral` is what actually releases it.
+tasks.register("publishRelease") {
+    group = "publishing"
+    description = "Publishes to Maven Central and GitHub Packages."
+    dependsOn("publishAndReleaseToMavenCentral")
+    dependsOn("publishAllPublicationsToGitHubPackagesRepository")
 }

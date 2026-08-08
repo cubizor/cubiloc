@@ -1,5 +1,7 @@
 [versions]
 kotlin = "2.1.20"
+# 0.36.0+ requires Kotlin Gradle Plugin 2.2.0; bump together with `kotlin` above.
+maven-publish-plugin = "0.35.0"
 snakeyaml = "2.4"
 okaeri-placeholders = "5.1.2"
 adventure = "4.21.0"
@@ -11,6 +13,7 @@ assertj = "3.27.3"
 [libraries]
 # Build
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+maven-publish-plugin = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "maven-publish-plugin" }
 
 # Core
 snakeyaml = { module = "org.yaml:snakeyaml", version.ref = "snakeyaml" }
