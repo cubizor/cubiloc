@@ -7,7 +7,7 @@
     [
       "gradle-semantic-release-plugin",
       {
-        "publishTask": "publish",
+        "publishTask": "publishRelease",
         "buildTask": ""
       }
     ],
