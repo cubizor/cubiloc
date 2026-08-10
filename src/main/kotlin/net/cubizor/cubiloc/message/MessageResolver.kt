@@ -6,27 +6,58 @@ import net.cubizor.cubicolor.api.ColorScheme
 import net.cubizor.cubicolor.text.MessageTheme
 import net.cubizor.cubiloc.color.ColorSchemeTagResolver
 import net.cubizor.cubiloc.color.MessageThemeTagResolver
+import net.cubizor.cubiloc.tag.DefaultStyleSource
+import net.cubizor.cubiloc.tag.TagResolverSource
+import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.format.Style
 import net.kyori.adventure.text.format.TextDecoration
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
 
 internal object MessageResolver {
 
+    /**
+     * Builds the MiniMessage instance used to deserialize a message.
+     *
+     * Tag precedence, highest first:
+     * `TagResolver.standard()` → [additionalResolvers] → [tagResolverSources] → theme resolver.
+     * Registered sources therefore win over theme tag names such as `<primary>`, while standard
+     * MiniMessage tags can never be shadowed.
+     *
+     * The resolver list is assembled in the opposite order because Adventure gives priority to
+     * the *last* resolver passed to [TagResolver.resolver].
+     */
     fun buildMiniMessage(
         colorScheme: ColorScheme?,
         messageTheme: MessageTheme?,
-        vararg additionalResolvers: TagResolver,
+        additionalResolvers: List<TagResolver> = emptyList(),
+        tagResolverSources: List<TagResolverSource> = emptyList(),
+        defaultStyleSource: DefaultStyleSource? = null,
+        receiver: Any? = null,
     ): MiniMessage {
         val themeResolver = when {
             messageTheme != null -> MessageThemeTagResolver.of(messageTheme)
             colorScheme != null -> ColorSchemeTagResolver.of(colorScheme)
             else -> TagResolver.empty()
         }
-        val resolvers = listOf(TagResolver.standard(), themeResolver) + additionalResolvers
+        val resolvers = buildList {
+            add(themeResolver)
+            tagResolverSources.asReversed().mapTo(this) { it.resolve(receiver) }
+            addAll(additionalResolvers.asReversed())
+            add(TagResolver.standard())
+        }
+        val defaultStyle = defaultStyleSource?.style(receiver)?.takeIf { it != Style.empty() }
         return MiniMessage.builder()
             .tags(TagResolver.resolver(resolvers))
-            .postProcessor { it.decorationIfAbsent(TextDecoration.ITALIC, TextDecoration.State.FALSE) }
+            .postProcessor { applyRootStyle(it, defaultStyle) }
             .build()
+    }
+
+    /** Applies the non-italic default plus the optional fallback style, never overriding the message. */
+    private fun applyRootStyle(component: Component, defaultStyle: Style?): Component {
+        val result = component.decorationIfAbsent(TextDecoration.ITALIC, TextDecoration.State.FALSE)
+        if (defaultStyle == null) return result
+        return result.style(result.style().merge(defaultStyle, Style.Merge.Strategy.IF_ABSENT_ON_TARGET))
     }
 
     fun resolvePlaceholders(value: String, placeholders: Map<String, Any>, global: Placeholders?): String {

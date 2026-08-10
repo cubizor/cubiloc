@@ -6,9 +6,19 @@ import net.cubizor.cubicolor.text.MessageTheme
 import net.cubizor.cubiloc.I18n
 import net.cubizor.cubiloc.context.I18nContextHolder
 import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
 
+/**
+ * A single resolved message, rendered lazily against whatever [I18nContextHolder] context is
+ * active at render time.
+ *
+ * Tag resolver sources and the default style registered on [I18n] are read through the [i18n]
+ * reference. Instances built from a raw value without an [I18n] (the legacy constructor below)
+ * have no way to reach them and therefore render with the standard, per-call and theme resolvers
+ * only, and without any default root style.
+ */
 class SingleMessageResult internal constructor(
     private val i18n: I18n? = null,
     private val messageKey: String? = null,
@@ -19,16 +29,19 @@ class SingleMessageResult internal constructor(
     private val messageTheme: MessageTheme? = null,
     internal val messageMap: Map<String, Any>? = null,
 ) {
-    // Legacy constructor for callers that already have a resolved string.
+    // Legacy constructor for callers that already have a resolved string. Pass `i18n` to keep
+    // access to the registered tag resolver sources and default style; omitting it renders
+    // without them.
     internal constructor(
         rawValue: String,
+        i18n: I18n? = null,
         placeholders: Map<String, Any> = emptyMap(),
         globalPlaceholders: Placeholders? = null,
         colorScheme: ColorScheme? = null,
         messageTheme: MessageTheme? = null,
         messageMap: Map<String, Any>? = null,
     ) : this(
-        i18n = null,
+        i18n = i18n,
         messageKey = null,
         rawValueOverride = rawValue,
         placeholders = placeholders,
@@ -70,26 +83,22 @@ class SingleMessageResult internal constructor(
         return MessageResolver.resolvePlaceholders(value, placeholders, globalPlaceholders)
     }
 
-    fun component(): Component {
-        val processed = process()
+    private fun miniMessage(additionalResolvers: List<TagResolver>): MiniMessage {
         val context = I18nContextHolder.get()
-        val mm = MessageResolver.buildMiniMessage(
-            colorScheme ?: context.colorScheme,
-            messageTheme ?: context.messageTheme,
+        return MessageResolver.buildMiniMessage(
+            colorScheme = colorScheme ?: context.colorScheme,
+            messageTheme = messageTheme ?: context.messageTheme,
+            additionalResolvers = additionalResolvers,
+            tagResolverSources = i18n?.tagResolverSourcesInternal().orEmpty(),
+            defaultStyleSource = i18n?.defaultStyleSourceInternal(),
+            receiver = context.receiver,
         )
-        return mm.deserialize(processed)
     }
 
-    fun component(additionalResolver: TagResolver): Component {
-        val processed = process()
-        val context = I18nContextHolder.get()
-        val mm = MessageResolver.buildMiniMessage(
-            colorScheme ?: context.colorScheme,
-            messageTheme ?: context.messageTheme,
-            additionalResolver,
-        )
-        return mm.deserialize(processed)
-    }
+    fun component(): Component = miniMessage(emptyList()).deserialize(process())
+
+    fun component(additionalResolver: TagResolver): Component =
+        miniMessage(listOf(additionalResolver)).deserialize(process())
 
     fun componentLegacy(): Component =
         LegacyComponentSerializer.legacyAmpersand().deserialize(process())

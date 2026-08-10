@@ -12,6 +12,8 @@ import net.cubizor.cubiloc.locale.LocaleProvider
 import net.cubizor.cubiloc.locale.ReflectionLocaleProvider
 import net.cubizor.cubiloc.message.ListMessageResult
 import net.cubizor.cubiloc.message.SingleMessageResult
+import net.cubizor.cubiloc.tag.DefaultStyleSource
+import net.cubizor.cubiloc.tag.TagResolverSource
 import java.io.File
 import java.io.IOException
 import java.util.Locale
@@ -23,6 +25,8 @@ class I18n(val defaultLocale: Locale) {
     private val messageThemes = mutableMapOf<String, MessageTheme>()
     private val userSchemePreferences = mutableMapOf<Any, String>()
     private val localeProviders = mutableListOf<LocaleProvider<*>>()
+    private val tagResolverSources = mutableListOf<TagResolverSource>()
+    private var defaultStyleSource: DefaultStyleSource? = null
     private val themeLoader = ThemeLoader()
     private val messageThemeJsonParser = MessageThemeJsonParser()
     val placeholders: Placeholders = Placeholders.create()
@@ -40,6 +44,32 @@ class I18n(val defaultLocale: Locale) {
 
     fun registerLocaleProvider(provider: LocaleProvider<*>): I18n {
         localeProviders.add(0, provider)
+        return this
+    }
+
+    // ==================== Tag Resolvers & Default Style ====================
+
+    /**
+     * Registers a [TagResolverSource] consulted for every message rendered through this instance.
+     *
+     * Sources are tried in registration order. They rank below
+     * [net.kyori.adventure.text.minimessage.tag.resolver.TagResolver.standard] and any per-call
+     * resolver, but above the color scheme / message theme resolver — a source may therefore
+     * override theme tag names.
+     */
+    fun registerTagResolvers(source: TagResolverSource): I18n {
+        tagResolverSources.add(source)
+        return this
+    }
+
+    /**
+     * Registers the [DefaultStyleSource] applied to the root of every rendered component.
+     *
+     * Only one source is kept; registering again replaces the previous one. The style is merged
+     * with `IF_ABSENT_ON_TARGET`, so it never overrides what the message itself declares.
+     */
+    fun registerDefaultStyle(source: DefaultStyleSource): I18n {
+        defaultStyleSource = source
         return this
     }
 
@@ -84,6 +114,7 @@ class I18n(val defaultLocale: Locale) {
             else -> listOf("key not found: $key")
         }
         return ListMessageResult(
+            i18n = this,
             rawValues = lines,
             globalPlaceholders = placeholders,
             messageMap = getMessageMap(locale),
@@ -200,6 +231,10 @@ class I18n(val defaultLocale: Locale) {
             ?: localeMessages[formatLocale(defaultLocale)]?.get(key)
 
     internal fun currentLocaleStrInternal(): String = currentLocaleStr()
+
+    internal fun tagResolverSourcesInternal(): List<TagResolverSource> = tagResolverSources
+
+    internal fun defaultStyleSourceInternal(): DefaultStyleSource? = defaultStyleSource
 
     internal fun getMessageMapInternal(locale: String): Map<String, Any> = getMessageMap(locale)
 
