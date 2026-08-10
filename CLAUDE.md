@@ -35,7 +35,8 @@ Cubicolor dependencies require `GITHUB_ACTOR`/`GITHUB_TOKEN` env vars or `gpr.us
 - **`I18nContext` / `I18nContextHolder`** — ThreadLocal stack-based context (AutoCloseable). Nested contexts restore previous on close.
 - **`YamlMessageLoader`** — Parses YAML via SnakeYAML and flattens nested keys to dot notation (`errors.notFound`).
 - **`MessageReference`** — Resolves `{@key}` inter-message references and `{trueKey,falseKey@#field}` conditional references from the message map.
-- **`MessageResolver`** — Shared logic for okaeri-placeholders resolution and MiniMessage building with color/theme tag resolvers.
+- **`MessageResolver`** — Shared logic for okaeri-placeholders resolution and MiniMessage building with color/theme tag resolvers. Tag precedence, highest first: `TagResolver.standard()` → per-call resolvers → registered `TagResolverSource`s → theme resolver. Adventure prioritises the *last* resolver passed to `TagResolver.resolver(...)`, so the list is assembled in reverse.
+- **`TagResolverSource` / `DefaultStyleSource`** — `fun interface` hooks in `net.cubizor.cubiloc.tag`, registered via `I18n.registerTagResolvers` / `I18n.registerDefaultStyle`. Let a host application inject MiniMessage tags and a fallback root style per context receiver. The default style is merged with `IF_ABSENT_ON_TARGET`, never overriding the message.
 - **`M` object** — Auto-generated from `src/main/resources/messages/en_US.yml` by `generateMessageKeys` Gradle task. Provides `const val` keys for compile-time safety.
 
 ### Build Structure

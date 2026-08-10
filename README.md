@@ -48,6 +48,23 @@ i18n.context(player).use {
 }
 ```
 
+## Custom Tags & Default Style
+
+Tags can also be supplied from outside the library, which lets one plugin own the palette for a
+whole network instead of every plugin shipping its own theme files:
+
+```kotlin
+i18n.registerTagResolvers { receiver -> networkPalette.resolverFor(receiver) }
+i18n.registerDefaultStyle { Style.style(NamedTextColor.WHITE) }
+```
+
+`registerTagResolvers` may be called more than once; sources are tried in registration order.
+They rank below `TagResolver.standard()` and any per-call resolver, but above the color scheme /
+message theme resolver, so a source can override tags such as `<primary>`.
+
+`registerDefaultStyle` keeps a single source. Its style is merged into the root of every rendered
+component with `IF_ABSENT_ON_TARGET`, so it only fills in what the message itself did not set.
+
 ## Documentation
 
 See the [Wiki](https://github.com/cubizor/cubiloc/wiki) for full documentation.
