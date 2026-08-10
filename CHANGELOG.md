@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/cubizor/cubiloc/compare/v2.2.0...v2.3.0) (2026-08-10)
+
+
+### Features
+
+* **tag:** add pluggable tag resolver and default style sources ([5160a23](https://github.com/cubizor/cubiloc/commit/5160a2376fb9988fbd65146caa227c3860370701))
+
 # [2.2.0](https://github.com/cubizor/cubiloc/compare/v2.1.1...v2.2.0) (2026-07-24)
 
 
