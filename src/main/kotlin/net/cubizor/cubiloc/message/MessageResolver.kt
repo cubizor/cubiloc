@@ -62,7 +62,9 @@ internal object MessageResolver {
 
     fun resolvePlaceholders(value: String, placeholders: Map<String, Any>, global: Placeholders?): String {
         val compiled = CompiledMessage.of(value)
-        val instance = global ?: Placeholders.create()
+        // Copied because the fallback below captures this call's placeholders. Setting it on the
+        // shared instance lets a concurrent render read another render's values.
+        val instance = global?.copy() ?: Placeholders.create()
         val ctx = instance.contextOf(compiled)
 
         for ((k, v) in expandDottedKeys(placeholders)) {
