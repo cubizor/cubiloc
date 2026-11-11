@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/cubizor/cubiloc/compare/v2.3.0...v2.3.1) (2026-11-11)
+
+
+### Bug Fixes
+
+* **placeholders:** stop concurrent renders sharing the fallback resolver ([7c9af59](https://github.com/cubizor/cubiloc/commit/7c9af59e286f768cb29d6e46fff6aa614cbbfe23))
+
 # [2.3.0](https://github.com/cubizor/cubiloc/compare/v2.2.0...v2.3.0) (2026-08-10)
 
 
